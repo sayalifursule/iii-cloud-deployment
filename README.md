@@ -143,14 +143,42 @@ Function:
 ```python
 math::add
 ```
+# JSON API Example
 
-Example Response:
+## Sample Request
+
+```bash
+curl -X POST http://<PUBLIC_API_IP>:3000/add \
+-H "Content-Type: application/json" \
+-d '{
+  "a": 4,
+  "b": 6
+}'
+```
+
+## Sample Response
+
 ```json
 {
   "c": 10
 }
 ```
 
+---
+
+# RPC Flow
+
+```text
+HTTP Request
+   ↓
+Public API VM
+   ↓
+caller-worker (TypeScript)
+   ↓ RPC
+math-worker (Python)
+   ↓
+JSON Response Returned
+```
 ---
 
 # Repository Structure
