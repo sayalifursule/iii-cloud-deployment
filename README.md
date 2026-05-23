@@ -143,6 +143,16 @@ Function:
 ```python
 math::add
 ```
+
+Example Response:
+```json
+{
+  "c": 10
+}
+```
+
+---
+
 # JSON API Example
 
 ## Sample Request
@@ -179,6 +189,7 @@ math-worker (Python)
    ↓
 JSON Response Returned
 ```
+
 ---
 
 # Repository Structure
@@ -246,18 +257,17 @@ python workers/math-worker/math_worker.py
 
 # RPC Communication
 
-The system uses:
-- iii SDK
-- websocket-based worker communication
-- distributed RPC architecture
+The workers communicate through iii’s distributed RPC architecture over the private AWS subnet using websocket-based inter-worker messaging.
 
-Workers communicate internally through the AWS private subnet.
+The caller-worker invokes the Python math-worker through internal RPC calls without exposing worker services to the public internet.
 
 ---
 
 # Infrastructure Reproducibility
 
 Infrastructure configuration and deployment steps are fully documented to allow recreation in a fresh AWS account.
+
+Future improvements include full Terraform automation for reproducible cloud provisioning.
 
 The project can be extended using:
 - Terraform
@@ -336,33 +346,41 @@ For significantly larger AI models:
 ## AWS VPC Configuration
 <img width="1920" height="1020" alt="Screenshot 2026-05-23 131047" src="https://github.com/user-attachments/assets/2fe6cb49-d8e3-47ee-9feb-639ab42a3f46" />
 
+---
 
 ## EC2 Instances
 <img width="1920" height="1020" alt="Screenshot 2026-05-23 131142" src="https://github.com/user-attachments/assets/f0ae0ac0-0fe7-42a9-9fa9-574c99f8e8cc" />
 
+---
 
 ## Private Subnet Configuration
 <img width="1920" height="1020" alt="Screenshot 2026-05-23 131257" src="https://github.com/user-attachments/assets/a3488ca6-fc6c-4ea7-b4b5-247407275ffb" />
 
+---
 
 ## Security Groups
 <img width="1920" height="1020" alt="Screenshot 2026-05-23 131220" src="https://github.com/user-attachments/assets/c572fd4b-f398-402a-89d5-3e885ac268ff" />
 
+---
 
 ## SSH Into Private VM
 <img width="1920" height="1020" alt="Screenshot 2026-05-23 131841" src="https://github.com/user-attachments/assets/5cb67e4a-1f59-441d-8c95-587b15321747" />
 
+---
 
 ## iii Worker Status
 <img width="1600" height="850" alt="WhatsApp Image 2026-05-20 at 11 43 24 PM" src="https://github.com/user-attachments/assets/95eae78a-280f-46b2-a780-3c095d7d9328" />
 
+---
 
 ## PowerShell / Terminal Output
 <img width="1600" height="850" alt="WhatsApp Image 2026-05-20 at 11 43 55 PM" src="https://github.com/user-attachments/assets/c99fdaf1-5698-4c8f-8808-4654c5692f99" />
 
-Repository URL:
-https://github.com/sayalifursule/iii-cloud-deployment
+---
 
+# Repository URL
+
+https://github.com/sayalifursule/iii-cloud-deployment
 
 ---
 
